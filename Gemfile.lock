@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    json_blob (0.0.0)
+    json_blob (0.1.0)
 
 GEM
   remote: https://rubygems.org/
