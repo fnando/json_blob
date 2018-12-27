@@ -1,0 +1,20 @@
+language: ruby
+sudo: false
+cache: bundler
+before_install:
+- gem install bundler
+before_script:
+- curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+- chmod +x ./cc-test-reporter
+- "./cc-test-reporter before-build"
+rvm:
+- 2.6.0
+gemfile:
+- Gemfile
+notifications:
+  email: false
+after_script:
+- "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
+env:
+  global:
+    secure: ZnunE2KgRzlAJsJFpKIxPR+uKRoqKilut+XzMffvMDrHaJSqc5y1hsz8h3dnjoJrGJ5BeLpH2wFwe6OlxCV8ULdI6bhbGPLEth1PYOHMq7p4zarbuGH/kZCDnLPPAwUYqgWXcbnpV/UTgjLaYhX83H3DY5XwneeokuCuAxL+6r2SgoqNCTDvPPAAN2nIiUFyMX9T8n39zTpFQ+69PvYZjV5kis8llzFgUoTOuj+/55PKp94Yns0HPN4zddtYhmvWQVdAMU05M9PAxQZdcTXe9VAN6c1VDKZGHIzq5y94KTK0jQ+lItE3s/DgGiXYxvpgzcRi2zgo31wl860kV77W7r5fuEetQnbUE+zfIPDo+nROREUMBZe3/NfKXkHP/Iw8uZGzWRPLEq4A/0xxB7aWRcSY56X0CAcjpSCLqEs892SPQ4iQ57itEP/5NJIdyOIAqBj8kOLMhYiCAe0otrVb1yUP9EFQrr0GmUa9p+834/PTSSLAjNS05Var9kpn3duhwYrY9h75o1scOPvKiCuf9offWslEsWYHnYOrjpurl4AvXBdCiJXvvHKsCIe/JRsb07NHkY+nhu6dxMP/t47oDNsIBX2pUoYLIKRQvQO13+hkucfRNdCGN3EZSnTHiFvVVBRG+awj8LtEJb3xccJeEGsdFthfOQTpAXOQafVKK6Q=
